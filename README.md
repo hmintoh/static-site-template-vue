@@ -11,4 +11,5 @@ work in progress
 ### What's included?
 
 - **Webpack** for dev server and production build
-- **ESLint** for linting
+- **Vue.js** for routing, views, and components
+- **ESLint** and **Prettier** for linting and code formatting

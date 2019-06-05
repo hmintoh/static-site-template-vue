@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:vue/essential",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:jest/recommended"
+  ],
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "plugins": ["vue"],
+  "globals": {
+    "expect": true
+  }
+}
