@@ -1,6 +1,6 @@
 const path = require("path");
-const {VueLoaderPlugin} = require("vue-loader");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
@@ -44,14 +44,14 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../src/public/index.html"),
-      filename: path.resolve(__dirname, "../dist/index.html")
-      // inject: "head"
-      // minify: {
-      //   collapseWhitespace: true,
-      //   useShortDoctype: true,
-      //   minifyCSS: true,
-      //   minifyJS: true,
-      // },
+      filename: path.resolve(__dirname, "../dist/index.html"),
+      inject: "head",
+      minify: {
+        collapseWhitespace: true,
+        useShortDoctype: true,
+        minifyCSS: true,
+        minifyJS: true
+      }
     }),
 
     new CopyWebpackPlugin([
