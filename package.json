@@ -1,18 +1,28 @@
 {
   "name": "static-site-template-vue",
-  "version": "1.0.0",
-  "description": "static-site-template for projects in vue",
+  "version": "0.1.0",
+  "description": "Static site framework and generator in vue",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config webpack/dev.config.js --watch --hot",
-    "build": "NODE_ENV=production webpack --config webpack/prod.config.js"
+    "build": "NODE_ENV=production webpack --config webpack/prod.config.js",
+    "serve": "serve dist"
   },
   "author": "thm",
   "license": "ISC",
+  "config": {
+    "project": {
+      "name": "prototypes-vue",
+      "description": "Static site framework and generator",
+      "bgColor": "#ffffff",
+      "themeColor": "#ffffff"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
+    "@prerenderer/renderer-puppeteer": "^0.2.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
@@ -29,6 +39,7 @@
     "html-webpack-plugin": "^3.2.0",
     "prerender-spa-plugin": "^3.4.0",
     "prettier": "^1.17.1",
+    "serve": "^11.0.2",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.6",

@@ -1,3 +1,11 @@
 node_modules/
-.DS_Store
+.env
+
+# distribution folder
 dist/
+
+# OS
+.DS_Store
+
+# error logs
+yarn-error.log
