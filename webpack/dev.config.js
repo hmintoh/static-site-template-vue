@@ -1,4 +1,6 @@
 const path = require("path");
+const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
 const merge = require("webpack-merge");
 const baseConfig = require("./base.config.js");
 
@@ -53,6 +55,13 @@ module.exports = merge(baseConfig, {
             loader: "sass-loader",
             options: {
               sourceMap: true
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: [tailwindcss, autoprefixer]
             }
           }
           // {
