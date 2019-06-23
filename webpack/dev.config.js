@@ -12,8 +12,60 @@ module.exports = merge(baseConfig, {
     historyApiFallback: true,
     host: "0.0.0.0",
     port: 3000,
-    // noInfo: true,
     overlay: true,
     watchContentBase: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(c|sc|sa)ss$/,
+        use: [
+          {
+            loader: "vue-style-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          // {
+          //   loader: "postcss-loader",
+          //   options: {
+          //     sourceMap: true
+          //   }
+          // },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+          // {
+          // loader: "sass-resources-loader"
+          // options: {
+          //   resources: [
+          //     path.resolve(__dirname, "../src/styles/tokens/_.scss")
+          //   ]
+          // }
+          // }
+        ],
+        include: path.resolve(__dirname, "../")
+      }
+    ]
   }
 });
