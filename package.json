@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config webpack/dev.config.js --watch --hot",
     "build": "NODE_ENV=production webpack --config webpack/prod.config.js",
-    "serve": "serve dist"
+    "serve": "serve dist",
+    "tailwind": "./node_modules/.bin/tailwind build ./src/styles/tailwind.css -c ./tailwind.js -o ./dist/_assets/styles.css"
   },
   "author": "thm",
   "license": "ISC",
