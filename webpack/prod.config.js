@@ -14,16 +14,8 @@ module.exports = merge(baseConfig, {
     rules: [
       {
         test: /\.(c|sc|sa)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-        // {
-        //   loader: "sass-resources-loader",
-        //   options: {
-        //     resources: [
-        //       path.resolve(__dirname, "../src/styles/tokens/_.scss")
-        //     ]
-        //   }
-        // }
-        include: path.resolve(__dirname, "../")
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        include: path.resolve(__dirname, "../dist/~assets/stylesheets")
       }
     ]
   },

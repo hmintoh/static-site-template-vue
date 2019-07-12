@@ -45,12 +45,6 @@ module.exports = merge(baseConfig, {
               sourceMap: true
             }
           },
-          // {
-          //   loader: "postcss-loader",
-          //   options: {
-          //     sourceMap: true
-          //   }
-          // },
           {
             loader: "sass-loader",
             options: {
@@ -60,20 +54,22 @@ module.exports = merge(baseConfig, {
           {
             loader: "postcss-loader",
             options: {
+              sourceMap: true,
               ident: "postcss",
               plugins: [tailwindcss, autoprefixer]
             }
           }
-          // {
-          // loader: "sass-resources-loader"
-          // options: {
-          //   resources: [
-          //     path.resolve(__dirname, "../src/styles/tokens/_.scss")
-          //   ]
-          // }
-          // }
         ],
         include: path.resolve(__dirname, "../")
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: [
+          { loader: "url-loader?limit=100000" },
+          {
+            loader: "file-loader"
+          }
+        ]
       }
     ]
   }

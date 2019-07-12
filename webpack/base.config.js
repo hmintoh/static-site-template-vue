@@ -4,12 +4,22 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+const ENV = process.env.NODE_ENV;
+
 module.exports = {
   mode: "development",
   entry: {
     app: path.resolve(__dirname, "../src/app/index.js")
   },
   output: {
+    filename:
+      ENV === "development"
+        ? "[name].bundle.[hash].js"
+        : "[name].bundle.[hash].min.js",
+    chunkFilename:
+      ENV === "development"
+        ? "[name].bundle.[chunkhash].js"
+        : "[name].bundle.[chunkhash].min.js",
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/"
   },

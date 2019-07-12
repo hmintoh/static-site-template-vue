@@ -1,9 +1,20 @@
 <template>
-  <h1>Home page pending implmentation</h1>
+  <main>
+    <img src="/_assets/images/prototype.png" />
+    <Hero projectName="prototypes" />
+  </main>
 </template>
 
 <script>
+import Hero from "~Components/Hero/Hero.vue";
+
 export default {
-  name: "ViewHome"
+  name: "ViewHome",
+  components: {
+    Hero
+  }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>

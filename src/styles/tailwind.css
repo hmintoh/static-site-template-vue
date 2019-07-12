@@ -37,7 +37,6 @@ strong,
 sub,
 sup,
 tt,
-var,
 b,
 u,
 i,
@@ -103,7 +102,7 @@ section {
 /* base configurations */
 @font-face {
   font-family: Work-Sans;
-  src: url(/_assets/fonts/WorkSans/WorkSans-Regular.ttf) format("ttf");
+  src: url(/_assets/fonts/Worksans/WorkSans-Regular.ttf) format("ttf");
 }
 
 h1 {
