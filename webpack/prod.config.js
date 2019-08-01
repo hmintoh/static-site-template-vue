@@ -10,15 +10,6 @@ const PuppeteerRenderer = require("@prerenderer/renderer-puppeteer");
 
 module.exports = merge(baseConfig, {
   mode: "production",
-  module: {
-    rules: [
-      {
-        test: /\.(c|sc|sa)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-        include: path.resolve(__dirname, "../dist/~assets/stylesheets")
-      }
-    ]
-  },
   plugins: [
     // Optimise images
     new ImageminPlugin({

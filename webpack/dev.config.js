@@ -1,6 +1,4 @@
 const path = require("path");
-const tailwindcss = require("tailwindcss");
-const autoprefixer = require("autoprefixer");
 const merge = require("webpack-merge");
 const baseConfig = require("./base.config.js");
 
@@ -31,44 +29,16 @@ module.exports = merge(baseConfig, {
         ]
       },
       {
-        test: /\.(c|sc|sa)ss$/,
-        use: [
-          {
-            loader: "vue-style-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-              ident: "postcss",
-              plugins: [tailwindcss, autoprefixer]
-            }
-          }
-        ],
-        include: path.resolve(__dirname, "../")
-      },
-      {
         test: /\.(woff|woff2|eot|ttf)$/,
         use: [
-          { loader: "url-loader?limit=100000" },
           {
             loader: "file-loader"
-          }
+            // options: {
+            //   name: "[name].[ext]",
+            //   outputPath: "_assets/fonts/"
+            // }
+          },
+          { loader: "url-loader?limit=100000" }
         ]
       }
     ]

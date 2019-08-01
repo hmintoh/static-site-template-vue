@@ -1,10 +1,13 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
 
-const ENV = process.env.NODE_ENV;
+const DEV_ENV = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: "development",
@@ -12,14 +15,8 @@ module.exports = {
     app: path.resolve(__dirname, "../src/app/index.js")
   },
   output: {
-    filename:
-      ENV === "development"
-        ? "[name].bundle.[hash].js"
-        : "[name].bundle.[hash].min.js",
-    chunkFilename:
-      ENV === "development"
-        ? "[name].bundle.[chunkhash].js"
-        : "[name].bundle.[chunkhash].min.js",
+    filename: DEV_ENV ? "[name].bundle.[hash].js" : "[name].bundle.[hash].min.js",
+    chunkFilename: DEV_ENV ? "[name].bundle.[chunkhash].js" : "[name].bundle.[chunkhash].min.js",
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/"
   },
@@ -33,6 +30,40 @@ module.exports = {
       {
         test: /\.vue$/,
         use: "vue-loader"
+      },
+      {
+        test: /\.(c|sc|sa)ss$/,
+        use: [
+          {
+            loader: DEV_ENV ? "vue-style-loader" : MiniCssExtractPlugin.loader,
+            options: DEV_ENV
+              ? { sourceMap: true }
+              : {
+                  publicPath: path.resolve(__dirname, "../dist/~assets/stylesheets")
+                }
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: DEV_ENV ? true : false
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: DEV_ENV ? true : false
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: DEV_ENV ? true : false,
+              ident: "postcss",
+              plugins: [tailwindcss, autoprefixer]
+            }
+          }
+        ],
+        include: path.resolve(__dirname, "../")
       }
     ]
   },
