@@ -1,65 +1,15 @@
-/* reset */
-html,
-body,
-div,
-span,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-img,
-ol,
-ul,
-li,
-form,
-label,
-table,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-footer,
-header,
-menu,
-nav,
-section {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
+/* import css reset and root styles*/
+@import "reset";
+@import "base";
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-/* base configurations */
+/* global styles */
 @font-face {
   font-family: Work Sans;
   src: url("/_assets/fonts/WorkSans-Regular.ttf");
 }
 
 h1 {
-  @apply font-heading text-gray-500 text-xxxl;
+  @apply font-heading text-black text-xxxl;
 }
 
 p {
