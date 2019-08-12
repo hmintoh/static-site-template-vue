@@ -15,8 +15,12 @@ module.exports = {
     app: path.resolve(__dirname, "../src/app/index.js")
   },
   output: {
-    filename: DEV_ENV ? "[name].bundle.[hash].js" : "[name].bundle.[hash].min.js",
-    chunkFilename: DEV_ENV ? "[name].bundle.[chunkhash].js" : "[name].bundle.[chunkhash].min.js",
+    filename: DEV_ENV
+      ? "[name].bundle.[hash].js"
+      : "[name].bundle.[hash].min.js",
+    chunkFilename: DEV_ENV
+      ? "[name].bundle.[chunkhash].js"
+      : "[name].bundle.[chunkhash].min.js",
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/"
   },
@@ -39,7 +43,10 @@ module.exports = {
             options: DEV_ENV
               ? { sourceMap: true }
               : {
-                  publicPath: path.resolve(__dirname, "../dist/~assets/stylesheets")
+                  publicPath: path.resolve(
+                    __dirname,
+                    "../dist/~assets/stylesheets"
+                  )
                 }
           },
           {
@@ -64,6 +71,10 @@ module.exports = {
           }
         ],
         include: path.resolve(__dirname, "../")
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: [{ loader: "url-loader", options: { limit: 100000 } }]
       }
     ]
   },

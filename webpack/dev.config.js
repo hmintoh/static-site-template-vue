@@ -22,23 +22,8 @@ module.exports = merge(baseConfig, {
         use: [
           {
             loader: "url-loader",
-            options: {
-              limit: 10000
-            }
+            options: { limit: 10000 }
           }
-        ]
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf)$/,
-        use: [
-          {
-            loader: "file-loader"
-            // options: {
-            //   name: "[name].[ext]",
-            //   outputPath: "_assets/fonts/"
-            // }
-          },
-          { loader: "url-loader?limit=100000" }
         ]
       }
     ]

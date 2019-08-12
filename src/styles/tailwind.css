@@ -54,12 +54,16 @@ section {
 
 /* base configurations */
 @font-face {
-  font-family: WorkSans-Regular;
-  src: url(/_assets/fonts/WorkSans-Regular.ttf) format("ttf");
+  font-family: Work Sans;
+  src: url("/_assets/fonts/WorkSans-Regular.ttf");
 }
 
 h1 {
   @apply font-heading text-gray-500 text-xxxl;
+}
+
+p {
+  @apply font-body;
 }
 
 @tailwind components;

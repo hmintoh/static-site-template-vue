@@ -36,8 +36,8 @@ module.exports = {
       ldesktop: "1280px"
     },
     fontFamily: {
-      heading: ["WorkSans-Regular", "sans-serif"],
-      body: ["WorkSans-Regular", "sans-serif"]
+      heading: ["Work Sans", "sans-serif"],
+      body: ["Work Sans", "sans-serif"]
     },
     fontSize: {
       xs: ".75rem",
