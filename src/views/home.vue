@@ -1,7 +1,6 @@
 <template>
   <main>
-    <img src="/_assets/images/prototype.png" />
-    <Hero projectName="prototypes" />
+    <Hero projectName="Amethyst" />
   </main>
 </template>
 
@@ -16,5 +15,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
